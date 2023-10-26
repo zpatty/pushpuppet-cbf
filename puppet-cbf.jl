@@ -1,6 +1,6 @@
 
 # qd,dqd,ddqd,d,hp,m,kb,ks,bb,bs,L0,e,Kp,KD,kc,ka,offset,contact)
-using Mosek, Convex, StaticArrays, SCS, Plots, DifferentialEquations, MosekTools, Interpolations, MAT
+using Mosek, Convex, StaticArrays, SCS, Plots, DifferentialEquations, MosekTools, Interpolations, MAT, LinearAlgebra
 
 szeros(::Type{T}, N) where T = @SVector zeros(T, N)
 szeros(N)= @SVector zeros(N)
@@ -10,7 +10,7 @@ szeros(N1, N2)= @SMatrix zeros(N1, N2)
 I3 = SMatrix{3,3}(1,0,0,0,1,0,0,0,1)
 
 include("mass.jl")
-include("puppet_cl.jl")
+include("puppet_cl_single.jl")
 
 d = 0.04;
 theta = [0 0.1 0.3 0.5];
